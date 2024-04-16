@@ -1,0 +1,34 @@
+class Book {
+  final String id;
+  final String view;
+  final int price;
+  final String description;
+  final String content;
+  final String url;
+  final String name;
+  final double start;
+
+  Book({
+    required this.id,
+    required this.view,
+    required this.price,
+    required this.description,
+    required this.content,
+    required this.url,
+    required this.name,
+    required this.start,
+  });
+
+  factory Book.fromJson(Map<String, dynamic> json) {
+    return Book(
+      id: json['id'] ?? '',
+      view: json['view'] ?? '',
+      price: json['price'] ?? 0,
+      description: json['description'] ?? '',
+      content: json['content'] ?? '',
+      url: json['url'] ?? '',
+      name: json['name'] ?? '',
+      start: json['start'] != null ? json['start'].toDouble() : 0.0,
+    );
+  }
+}
