@@ -1,6 +1,6 @@
-#Wed Apr 17 00:29:27 ICT 2024
-base.0=/Users/tronghung/AndroidStudioProjects/tlubook/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-base.1=/Users/tronghung/AndroidStudioProjects/tlubook/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
+#Wed Apr 24 11:12:05 ICT 2024
+base.0=/Users/tronghung/Documents/GitHub/audio-book/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+base.1=/Users/tronghung/Documents/GitHub/audio-book/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.0=classes.dex
 path.1=classes2.dex
 renamed.0=classes.dex
