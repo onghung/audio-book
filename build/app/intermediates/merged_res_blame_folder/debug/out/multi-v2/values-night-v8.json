@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.tlubook.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.tlubook.app-mergeDebugResources-12:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/tronghung/AndroidStudioProjects/tlubook/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/tronghung/Documents/GitHub/audio-book/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

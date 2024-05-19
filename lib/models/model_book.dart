@@ -7,6 +7,7 @@ class Book {
   final String url;
   final String name;
   final double start;
+  final String sound;
 
   Book({
     required this.id,
@@ -17,6 +18,7 @@ class Book {
     required this.url,
     required this.name,
     required this.start,
+    required this.sound,
   });
 
   factory Book.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class Book {
       url: json['url'] ?? '',
       name: json['name'] ?? '',
       start: json['start'] != null ? json['start'].toDouble() : 0.0,
+      sound: json['sound'] ?? '',
     );
   }
 }
