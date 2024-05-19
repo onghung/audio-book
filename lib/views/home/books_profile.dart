@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/book_selection_widget.dart';
+import '../../widgets/book_selection_widget.dart';
 import 'book_home.dart';
 
 class BooksProfile extends StatelessWidget {

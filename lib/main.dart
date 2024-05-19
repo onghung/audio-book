@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tlubook/views/book_view.dart';
 import 'package:tlubook/views/books_splash.dart';
 
 void main() {

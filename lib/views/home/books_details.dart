@@ -1,8 +1,9 @@
 import 'package:av_smooth_star_rating/av_smooth_star_rating.dart';
 import 'package:flutter/material.dart';
-import '../models/model_book.dart';
+import '../../models/model_book.dart';
 import 'book_read.dart';
 import 'books_listen.dart';
+
 
 class BooksDetails extends StatelessWidget {
   final Book book;

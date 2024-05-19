@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/model_book.dart';
+import '../../models/model_book.dart';
+
 
 class BooksRead extends StatelessWidget {
   final Book book;

@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import '../models/model_book.dart';
+import '../../models/model_book.dart';
 
 class BooksListen extends StatefulWidget {
   final Book book;

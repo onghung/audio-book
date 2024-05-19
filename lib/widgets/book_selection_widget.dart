@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../controllers/books_controller.dart';
 import '../models/model_book.dart';
-import '../views/books_details.dart';
+import '../views/home/books_details.dart';
 
 class BookSection extends StatelessWidget {
   final Controller _controller = Controller();

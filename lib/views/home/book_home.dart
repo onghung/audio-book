@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../widgets/book_selection_widget.dart';
+import '../../widgets/book_selection_widget.dart';
 import 'books_profile.dart';
 import 'package:http/http.dart' as http;
 

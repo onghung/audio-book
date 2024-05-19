@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../controllers/books_controller.dart';
-import '../models/model_book.dart';
+import '../../controllers/books_controller.dart';
+import '../../models/model_book.dart';
 
 
 class MyView extends StatelessWidget {

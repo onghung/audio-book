@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'book_home.dart';
+import 'home/book_home.dart';
 
 class BooksSplash extends StatelessWidget {
   @override
