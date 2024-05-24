@@ -1,87 +1,131 @@
 import 'package:flutter/material.dart';
-
+import '../services/tab_repository.dart';
 import 'home/book_home.dart';
 
 class BooksSplash extends StatelessWidget {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TabRepository _repository = TabRepository();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.centerRight,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              "assets/images/splash3.png",
-            ),
-            fit: BoxFit.cover,
-          ),
+    Widget _buildEmail() {
+      return Container(
+        height: 50,
+        decoration: BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+              offset: Offset(3, 3), blurRadius: 6, color: Colors.grey.shade400)
+        ]),
+        child: TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Hãy nhập email của bạn";
+            }
+            return null;
+          },
+          controller: emailController,
+          decoration: const InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14),
+              prefixIcon: Icon(Icons.email_outlined),
+              hintText: "Nhập email của bạn"),
         ),
-        child: SafeArea(
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              vertical: 30,
-              horizontal: 40,
-            ),
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: double.infinity,
+      );
+    }
+
+    Widget _buildPassword() {
+      return Container(
+        height: 50,
+        decoration: BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+              offset: Offset(3, 3), blurRadius: 6, color: Colors.grey.shade400)
+        ]),
+        child: TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Hãy nhập mật khẩu của bạn";
+            }
+            return null;
+          },
+          controller: passwordController,
+          decoration: const InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14),
+              prefixIcon: Icon(Icons.lock_outline_rounded),
+              hintText: "Nhập mật khẩu của bạn"),
+        ),
+      );
+    }
+
+    return Scaffold(
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                SizedBox(),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(
+                  height: 300,
+                  child: Stack(
                     children: [
-                      Container(
-                        width: 100,
-                        height: 10,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: Color(0xffC44536),
+                      Positioned(
+                        top: 220,
+                        left: 30,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Đăng nhập",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w800, fontSize: 26),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Đăng nhập để tiếp tục",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 17),
+                            )
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      Text(
-                        "read\nlisten\nget Inspired",
-                        style: TextStyle(
-                          height: 1.75,
-                          letterSpacing: 2,
-                          color: Color(0xffC44536),
-                          fontSize: 32,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
+                      )
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(40),
-                      height: 50,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Color(0xffC44536),
-                      ),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.navigate_next,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                        onPressed: () => Navigator.push(
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 28),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const SizedBox(height: 25,),
+                      _buildEmail(),
+                      const SizedBox(height: 25,),
+                      _buildPassword(),
+                      const SizedBox(height: 25,),
+                      ElevatedButton(
+                        onPressed: () async {
+                          await _repository.login(
+                            emailController.text,
+                            passwordController.text,
+                          );
+                          // Successful login
+                          Navigator
+                              .pushReplacement( // Navigate to the home screen and replace the current route
                             context,
                             MaterialPageRoute(
                               builder: (context) => BooksHome(),
-                            )),
+                            ),
+                          );
+                        },
+                        child: Text("Đăng nhập"),
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),
@@ -90,4 +134,5 @@ class BooksSplash extends StatelessWidget {
       ),
     );
   }
+
 }
